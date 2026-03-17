@@ -51,7 +51,8 @@ Nmap scan report for 192.168.225.139
 
 Host is up 2 (0.00018s latency)
 
-ScreenShot placeholder
+ScreenShot 
+
 <img width="552" height="183" alt="Screenshot 2026-03-16 224324" src="https://github.com/user-attachments/assets/2ad2c10f-b4cb-4a47-9b82-cd71409adb1a" />
 
 ---
@@ -65,10 +66,14 @@ Port scanning is used in network security and penetration testing to discover:
 
   **Command:**
   nmap 192.168.225.139
+
+  screenshot
+  
   <img width="538" height="540" alt="Screenshot 2026-03-16 231301" src="https://github.com/user-attachments/assets/1587837c-9b5a-47e3-9c17-83d10b2aa649" />
 
   ---
   **Phase 3: Scan a Specific Port or Multiple Port**
+  
   You can scan a single port or multiple port.
 
   **Command for single port:**
@@ -88,6 +93,7 @@ Port scanning is used in network security and penetration testing to discover:
   NB: no port is specified.
 
   screenshot below is a single port.
+  
 <img width="543" height="177" alt="{6A618A3E-EE38-48AA-9C0B-7469C0885675}" src="https://github.com/user-attachments/assets/4402c068-d41b-41db-8b35-4e2e327984e1" />
 
 ---
@@ -108,6 +114,259 @@ Knowing the exact version helps correlate services with known vulnerabilities
 
 screenshot
 <img width="1005" height="577" alt="Screenshot 2026-03-16 235107" src="https://github.com/user-attachments/assets/8f6e4e9e-8f0e-4bfd-a53e-bc2df6b4e983" />
+
+---
+
+**phase 5: Aggressive Scan Command**
+
+Gather maximum information in a single scan.
+
+**Command**
+
+nmap -A 192.168.225.139
+
+It enables:
+
+* OS detection (-O)
+
+* Service & version detection (-sV)
+
+* Script scanning (NSE scripts)
+
+* Traceroute
+
+  screenshot
+  
+<img width="1206" height="910" alt="Screenshot 2026-03-17 071242" src="https://github.com/user-attachments/assets/4ab7d6e3-87e1-4a1c-b761-1ddbe7504a1d" />
+
+**Use it when you need:**
+
+* Full network reconnaissance
+
+* Detailed security assessment
+
+* Information for penetration testing
+
+---
+
+  
+**Phase 6: Operation System (OS) detection**
+
+identify the type of operating system running on a target machine (e.g., Linux, Windows).
+
+**Command**
+
+nmap -O 192.168.1.10
+
+**Explanation:**
+
+* -O → Enables OS detection
+
+* Requires administrator/root privileges to work properly
+
+  **How It Works**
+
+Nmap analyzes:
+
+* TCP/IP stack behavior
+
+* Packet responses
+
+* Network characteristics
+
+Then compares them to its OS fingerprint database to guess the OS.
+
+Screenshot
+
+<img width="928" height="436" alt="Screenshot 2026-03-17 074316" src="https://github.com/user-attachments/assets/28008d81-7d94-40ac-875c-d1b524ca9fc5" />
+
+---
+
+**Phase 7: Nmap Scripting Engine (NSE)**
+
+a powerful feature that allows you to run scripts to automate tasks like:
+
+* Detecting vulnerabilities
+
+* Gathering detailed information
+
+* Brute-force testing (in authorized labs)
+
+* Checking misconfigurations
+
+  **Command**
+
+  nmap --script=default 192.168.225.139
+
+  **What it does:**
+
+* Runs default safe scripts
+
+* Provides additional info about services
+
+**Vulnerability Scanning**
+
+**Command**
+
+nmap --script=vuln 192.168.1.10
+
+This checks for:
+
+* Known vulnerabilities
+
+* Weak configurations
+
+  Screenshot
+
+  <img width="1092" height="935" alt="Screenshot 2026-03-17 081934" src="https://github.com/user-attachments/assets/808db0df-4daa-4e8d-906f-e390edfc2ed7" />
+
+
+  ---
+
+**Output Management in Nmap**
+
+Output management in Nmap means saving, organizing, and formatting scan results so you can analyze them later or include them in reports.
+
+**Saving output helps you:**
+
+* Keep records of scans
+
+* Analyze results later
+
+* Create professional reports
+
+* Share findings
+
+**Command**
+
+  nmap -oN result.txt 192.168.1.10
+
+* -oN → Normal (readable) format
+
+* Saves output to result.txt
+
+**Save in All Formats at Once**
+
+Command:
+
+nmap -oA scan_results 192.168.1.10
+
+This creates:
+
+* scan_results.nmap (normal)
+
+* scan_results.xml
+
+* scan_results.gnmap
+
+---
+
+**Demonstrated skills**
+
+* Network discovery
+* Port scanning
+* Service and OS detection
+* Vulnerability assessment using NSE
+* Reconnaissance techniques
+* Output management
+* Security analysis using Nmap.
+
+  ---
+  
+  **Conclusion**
+
+This project demonstrated the practical use of Nmap in conducting network reconnaissance and security assessment. Through a series of structured scans, including host discovery, port scanning, service and version detection, operating system identification, and the use of the Nmap Scripting Engine (NSE), valuable insights were gathered about target systems.
+
+---
+
+**Security Insight**
+
+**How Cybercriminals Can Use Nmap**
+
+Cybercriminals use Nmap during the reconnaissance phase of an attack to gather information about a target.
+
+**1. Identifying Open Ports**
+
+* Discover open ports such as:
+
+22 (SSH)
+
+80 (HTTP)
+
+* These ports act as entry points into a system
+
+**2. Detecting Services and Versions**
+
+* Identify software versions (e.g., outdated Apache or OpenSSH)
+
+* Exploit known vulnerabilities in old versions
+
+**3. OS Detection**
+
+* Determine the operating system (Windows, Linux)
+
+* Launch OS-specific attacks
+
+**4. Vulnerability Scanning (NSE)**
+
+* Use scripts to detect weaknesses
+
+* Target misconfigurations and exposed services
+
+**5. Network Mapping**
+
+* Understand network structure
+* Identify valuable targets like servers or databases
+
+  ---
+
+  **How Cybersecurity Professionals Use Nmap**
+
+Ethical hackers and security teams use Nmap to protect systems and improve security.
+
+
+**1. Security Auditing**
+
+* Scan systems to identify open ports and services
+
+* Detect unnecessary or risky exposures
+
+**2. Vulnerability Assessment**
+
+* Find outdated or vulnerable software
+
+* Fix issues before attackers exploit them
+
+**3. Network Monitoring**
+
+* Keep track of devices connected to a network
+
+* Detect unauthorized systems
+
+**4. Penetration Testing**
+
+* Simulate real-world attacks in a controlled environment
+
+* Test how secure a system is
+
+**5. Hardening Systems**
+
+* Close unused ports
+
+* Update software
+
+* Configure firewalls properly
+
+  ---
+
+  **Key Takeaway**
+
+The difference between a cybercriminal and a cybersecurity professional is intent and authorization.
+
+* Cybercriminals use Nmap to exploit weaknesses
+
+* Professionals use it to identify and fix weaknesses
+
 
 
 
